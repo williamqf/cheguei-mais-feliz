@@ -1,4 +1,5 @@
 import { ArrowRight, Sparkles, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-baby-illustration.jpg";
 import babyMascot from "@/assets/baby-mascot.jpg";
 
@@ -42,14 +43,14 @@ const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="btn-hero group">
+              <Link to="/criar-cha" className="btn-hero group">
                 Crie seu chá de bebê grátis
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
               
-              <button className="btn-secondary">
+              <a href="#como-funciona" className="btn-secondary">
                 Ver como funciona
-              </button>
+              </a>
             </div>
             
             <div className="mt-12 flex items-center justify-center lg:justify-start gap-8 text-sm text-muted-foreground">

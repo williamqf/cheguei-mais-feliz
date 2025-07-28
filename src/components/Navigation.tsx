@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X, Baby, LogIn } from "lucide-react";
+import { Link } from "react-router-dom";
 import babyMascot from "@/assets/baby-mascot.jpg";
 
 const Navigation = () => {
@@ -7,7 +8,7 @@ const Navigation = () => {
 
   const navItems = [
     { label: "Como funciona", href: "#como-funciona" },
-    { label: "Recursos", href: "#recursos" },
+    { label: "Recursos", href: "/recursos" },
     { label: "Depoimentos", href: "#depoimentos" },
     { label: "Contato", href: "#contato" }
   ];
@@ -41,14 +42,14 @@ const Navigation = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-4">
-            <button className="btn-secondary flex items-center gap-2">
+            <Link to="/login" className="btn-secondary flex items-center gap-2">
               <LogIn className="w-4 h-4" />
               Entrar
-            </button>
-            <button className="btn-hero flex items-center gap-2">
+            </Link>
+            <Link to="/criar-cha" className="btn-hero flex items-center gap-2">
               <Baby className="w-4 h-4" />
               Criar chá grátis
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -75,14 +76,14 @@ const Navigation = () => {
                 </a>
               ))}
               <div className="pt-4 space-y-3">
-                <button className="btn-secondary w-full flex items-center justify-center gap-2">
+                <Link to="/login" className="btn-secondary w-full flex items-center justify-center gap-2">
                   <LogIn className="w-4 h-4" />
                   Entrar
-                </button>
-                <button className="btn-hero w-full flex items-center justify-center gap-2">
+                </Link>
+                <Link to="/criar-cha" className="btn-hero w-full flex items-center justify-center gap-2">
                   <Baby className="w-4 h-4" />
                   Criar chá grátis
-                </button>
+                </Link>
               </div>
             </div>
           </div>

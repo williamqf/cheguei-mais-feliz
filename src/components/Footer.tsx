@@ -3,7 +3,7 @@ import babyMascot from "@/assets/baby-mascot.jpg";
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral/50 border-t border-border">
+    <footer id="contato" className="bg-neutral/50 border-t border-border">
       <div className="container-fluid">
         {/* Main footer */}
         <div className="py-12 grid md:grid-cols-4 gap-8">

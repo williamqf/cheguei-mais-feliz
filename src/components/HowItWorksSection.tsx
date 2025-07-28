@@ -1,4 +1,5 @@
 import { Gift, Users, MessageCircle, CreditCard } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const steps = [
   {
@@ -29,7 +30,7 @@ const steps = [
 
 const HowItWorksSection = () => {
   return (
-    <section className="section-padding bg-neutral/20">
+    <section id="como-funciona" className="section-padding bg-neutral/20">
       <div className="container-fluid">
         <div className="text-center mb-16">
           <h2 className="text-section-title mb-4">Como funciona?</h2>
@@ -79,9 +80,9 @@ const HowItWorksSection = () => {
         {/* CTA adicional */}
         <div className="text-center mt-16">
           <p className="text-muted-foreground mb-6">Simples assim! Pronto para começar?</p>
-          <button className="btn-hero">
+          <Link to="/criar-cha" className="btn-hero">
             Criar meu chá de bebê agora
-          </button>
+          </Link>
         </div>
       </div>
     </section>

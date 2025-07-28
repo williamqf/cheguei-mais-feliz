@@ -12,7 +12,8 @@ const CTASection = () => {
     e.preventDefault();
     // Aqui seria a integração com o backend
     console.log("Dados do formulário:", formData);
-    // Redirecionar para dashboard ou próxima etapa
+    // Redirecionar para página de criação de chá
+    window.location.href = "/criar-cha";
   };
 
   return (

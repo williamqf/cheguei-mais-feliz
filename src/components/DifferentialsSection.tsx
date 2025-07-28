@@ -1,4 +1,5 @@
 import { Bot, Video, Gift, BarChart3, Heart, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import giftsImage from "@/assets/gifts-illustration.jpg";
 import communityImage from "@/assets/community-illustration.jpg";
 
@@ -135,9 +136,9 @@ const DifferentialsSection = () => {
             </div>
           </div>
           
-          <button className="btn-accent">
+          <Link to="/recursos" className="btn-accent">
             Ver todos os recursos
-          </button>
+          </Link>
         </div>
       </div>
     </section>
