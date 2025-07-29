@@ -5,65 +5,75 @@ import babyMascot from "@/assets/baby-mascot.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-hero flex items-center justify-center overflow-hidden pt-16">
-      {/* Background decorativo */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5"></div>
+    <section className="relative min-h-screen bg-hero flex items-center justify-center overflow-hidden pt-20">
+      {/* Background com microanimações */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-secondary/6 to-accent/8"></div>
       
-      {/* Elementos flutuantes */}
+      {/* Elementos flutuantes com microanimações suaves */}
       <div className="absolute top-20 left-10 animate-float">
-        <Heart className="w-8 h-8 text-primary/30" />
+        <div className="w-12 h-12 bg-primary/20 rounded-full animate-pulse-soft"></div>
       </div>
-      <div className="absolute top-40 right-20 animate-float delay-1000">
-        <Sparkles className="w-6 h-6 text-secondary/40" />
+      <div className="absolute top-32 right-16 animate-float delay-1000">
+        <Heart className="w-8 h-8 text-primary/40 animate-pulse-soft" />
+      </div>
+      <div className="absolute top-56 left-1/4 animate-gentle-bounce delay-500">
+        <div className="w-8 h-8 bg-secondary/25 rounded-full animate-pulse-soft delay-300"></div>
+      </div>
+      <div className="absolute bottom-40 right-24 animate-float delay-2000">
+        <Sparkles className="w-6 h-6 text-accent/50 animate-pulse-soft delay-500" />
       </div>
       <div className="absolute bottom-32 left-20 animate-gentle-bounce">
-        <Heart className="w-6 h-6 text-accent/30" />
+        <div className="w-10 h-10 bg-accent/20 rounded-full animate-pulse-soft delay-700"></div>
       </div>
       
       <div className="container-fluid relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Conteúdo textual */}
-          <div className="text-center lg:text-left animate-slide-up">
-            <div className="flex items-center justify-center lg:justify-start mb-6">
+          <div className="text-center lg:text-left animate-slide-up space-y-8">
+            <div className="flex items-center justify-center lg:justify-start mb-8">
               <img 
                 src={babyMascot} 
-                alt="ChegueiApp Mascote" 
-                className="w-16 h-16 rounded-full mr-4 animate-pulse-soft"
+                alt="ChegueFamília Mascote" 
+                className="w-20 h-20 rounded-full mr-4 animate-pulse-soft shadow-lg"
               />
-              <span className="text-lg font-medium text-primary">ChegueiApp</span>
+              <span className="text-xl font-semibold text-primary font-serif">ChegueFamília</span>
             </div>
             
-            <h1 className="text-hero mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-              A nova forma de celebrar o chá de bebê
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8 font-serif">
+              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                A nova forma de celebrar
+              </span>
+              <br />
+              <span className="text-foreground">o chá de bebê</span>
             </h1>
             
-            <p className="text-subtitle mb-8 max-w-xl mx-auto lg:mx-0">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
               Organize, compartilhe, emocione e receba apoio com um toque. 
-              <strong className="text-primary"> Tudo num só lugar.</strong>
+              <strong className="text-primary font-medium"> Tudo num só lugar.</strong>
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link to="/criar-cha" className="btn-hero group">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start mb-12">
+              <Link to="/criar-cha" className="btn-hero group text-lg px-10 py-5">
                 Crie seu chá de bebê grátis
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
               
-              <a href="#como-funciona" className="btn-secondary">
+              <a href="#como-funciona" className="btn-secondary text-lg px-8 py-4">
                 Ver como funciona
               </a>
             </div>
             
-            <div className="mt-12 flex items-center justify-center lg:justify-start gap-8 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-primary rounded-full animate-pulse-soft"></div>
+            <div className="flex items-center justify-center lg:justify-start gap-8 text-base text-muted-foreground">
+              <div className="flex items-center gap-3">
+                <div className="w-4 h-4 bg-primary rounded-full animate-pulse-soft"></div>
                 <span>100% gratuito</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-secondary rounded-full animate-pulse-soft delay-200"></div>
+              <div className="flex items-center gap-3">
+                <div className="w-4 h-4 bg-secondary rounded-full animate-pulse-soft delay-200"></div>
                 <span>Sem complicações</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-accent rounded-full animate-pulse-soft delay-400"></div>
+              <div className="flex items-center gap-3">
+                <div className="w-4 h-4 bg-accent rounded-full animate-pulse-soft delay-400"></div>
                 <span>Super fácil</span>
               </div>
             </div>

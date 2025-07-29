@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { Plus, Search, Filter, MoreVertical, Eye, Edit, Trash2 } from "lucide-react";
+import { Plus, Search, Filter } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import EventCard from "@/components/EventCard";
-import DashboardPreview from "@/components/DashboardPreview";
+import DashboardSidebar from "@/components/DashboardSidebar";
+import DashboardCards from "@/components/DashboardCards";
 
 const DashboardPage = () => {
-  const [activeTab, setActiveTab] = useState("events");
+  const [activeSection, setActiveSection] = useState("overview");
   const [searchTerm, setSearchTerm] = useState("");
 
   // Dados mockados - em produção viriam da API
@@ -46,120 +47,83 @@ const DashboardPage = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <div className="pt-24 pb-12">
-        <div className="container-fluid">
-          {/* Header */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
-            <div>
-              <h1 className="text-3xl font-bold text-foreground mb-2">
-                Meus Chás de Bebê
-              </h1>
-              <p className="text-muted-foreground">
-                Gerencie seus eventos e acompanhe o progresso
-              </p>
-            </div>
-            
-            <Link to="/criar-cha" className="btn-hero flex items-center gap-2">
-              <Plus className="w-5 h-5" />
-              Criar novo chá
-            </Link>
-          </div>
+      <div className="pt-20 flex">
+        {/* Sidebar */}
+        <DashboardSidebar 
+          activeSection={activeSection} 
+          onSectionChange={setActiveSection} 
+        />
 
-          {/* Tabs */}
-          <div className="flex items-center gap-6 mb-8 border-b border-border">
-            <button
-              onClick={() => setActiveTab("events")}
-              className={`pb-4 px-2 font-medium transition-colors border-b-2 ${
-                activeTab === "events"
-                  ? "text-primary border-primary"
-                  : "text-muted-foreground border-transparent hover:text-foreground"
-              }`}
-            >
-              Meus Eventos ({userEvents.length})
-            </button>
-            <button
-              onClick={() => setActiveTab("analytics")}
-              className={`pb-4 px-2 font-medium transition-colors border-b-2 ${
-                activeTab === "analytics"
-                  ? "text-primary border-primary"
-                  : "text-muted-foreground border-transparent hover:text-foreground"
-              }`}
-            >
-              Painel Detalhado
-            </button>
-          </div>
-
-          {/* Conteúdo das tabs */}
-          {activeTab === "events" && (
-            <>
-              {/* Filtros e busca */}
-              <div className="flex flex-col md:flex-row gap-4 mb-8">
-                <div className="relative flex-1">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                  <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    placeholder="Buscar por nome do bebê ou pais..."
-                    className="w-full pl-10 pr-4 py-3 border border-border rounded-xl 
-                      focus:ring-2 focus:ring-primary focus:border-transparent
-                      bg-background text-foreground placeholder-muted-foreground"
-                  />
-                </div>
-                <button className="btn-secondary flex items-center gap-2">
-                  <Filter className="w-4 h-4" />
-                  Filtros
-                </button>
+        {/* Main Content */}
+        <div className="flex-1 lg:ml-0">
+          <div className="p-6 lg:p-8">
+            {/* Header */}
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-8">
+              <div>
+                <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-2 font-serif">
+                  Painel do Evento
+                </h1>
+                <p className="text-lg text-muted-foreground">
+                  Acompanhe tudo sobre o chá de bebê da Sofia
+                </p>
               </div>
-
-              {/* Lista de eventos */}
-              {filteredEvents.length > 0 ? (
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filteredEvents.map((event) => (
-                    <EventCard key={event.id} event={event} />
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-16">
-                  {searchTerm ? (
-                    <div>
-                      <p className="text-muted-foreground mb-4">
-                        Nenhum evento encontrado para "{searchTerm}"
-                      </p>
-                      <button 
-                        onClick={() => setSearchTerm("")}
-                        className="btn-secondary"
-                      >
-                        Limpar busca
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="max-w-md mx-auto">
-                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Plus className="w-8 h-8 text-primary" />
-                      </div>
-                      <h3 className="text-xl font-semibold text-foreground mb-2">
-                        Crie seu primeiro chá de bebê!
-                      </h3>
-                      <p className="text-muted-foreground mb-6">
-                        É fácil e rápido. Em poucos minutos você terá uma página linda 
-                        para compartilhar com amigos e família.
-                      </p>
-                      <Link to="/criar-cha" className="btn-hero">
-                        Começar agora
-                      </Link>
-                    </div>
-                  )}
-                </div>
-              )}
-            </>
-          )}
-
-          {activeTab === "analytics" && (
-            <div>
-              <DashboardPreview />
+              
+              <Link to="/criar-cha" className="btn-hero flex items-center gap-2">
+                <Plus className="w-5 h-5" />
+                Criar novo chá
+              </Link>
             </div>
-          )}
+
+            {/* Content based on active section */}
+            {activeSection === "overview" && (
+              <DashboardCards />
+            )}
+
+            {activeSection === "gifts" && (
+              <div className="space-y-6">
+                <div className="bg-card rounded-2xl p-8 border border-border">
+                  <h2 className="text-2xl font-semibold mb-4 font-serif">Lista de Presentes</h2>
+                  <p className="text-muted-foreground">Gerencie os presentes solicitados e acompanhe o que já foi presenteado.</p>
+                </div>
+              </div>
+            )}
+
+            {activeSection === "guests" && (
+              <div className="space-y-6">
+                <div className="bg-card rounded-2xl p-8 border border-border">
+                  <h2 className="text-2xl font-semibold mb-4 font-serif">Lista de Convidados</h2>
+                  <p className="text-muted-foreground">Gerencie sua lista de convidados e acompanhe as confirmações.</p>
+                </div>
+              </div>
+            )}
+
+            {activeSection === "gallery" && (
+              <div className="space-y-6">
+                <div className="bg-card rounded-2xl p-8 border border-border">
+                  <h2 className="text-2xl font-semibold mb-4 font-serif">Galeria de Fotos</h2>
+                  <p className="text-muted-foreground">Compartilhe momentos especiais da preparação e do evento.</p>
+                </div>
+              </div>
+            )}
+
+            {activeSection === "memories" && (
+              <div className="space-y-6">
+                <div className="bg-card rounded-2xl p-8 border border-border">
+                  <h2 className="text-2xl font-semibold mb-4 font-serif">Memórias e Recados</h2>
+                  <p className="text-muted-foreground">Veja todos os recados carinhosos deixados pelos convidados.</p>
+                </div>
+              </div>
+            )}
+
+            {activeSection === "settings" && (
+              <div className="space-y-6">
+                <div className="bg-card rounded-2xl p-8 border border-border">
+                  <h2 className="text-2xl font-semibold mb-4 font-serif">Configurações do Evento</h2>
+                  <p className="text-muted-foreground">Personalize as configurações do seu chá de bebê.</p>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
