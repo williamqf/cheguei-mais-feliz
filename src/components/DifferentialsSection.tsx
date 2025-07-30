@@ -32,7 +32,7 @@ const differentials = [
 
 const DifferentialsSection = () => {
   return (
-    <section className="section-padding bg-background">
+    <section id="recursos" className="section-padding bg-background">
       <div className="container-fluid">
         {/* Header da seção */}
         <div className="text-center mb-16">

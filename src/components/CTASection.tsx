@@ -17,7 +17,7 @@ const CTASection = () => {
   };
 
   return (
-    <section className="section-padding bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
+    <section id="contato" className="section-padding bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
       <div className="container-fluid">
         <div className="max-w-4xl mx-auto text-center">
           {/* Header */}
