@@ -1,7 +1,9 @@
 import { TrendingUp, Users, Heart, DollarSign } from "lucide-react";
 import { useEffect, useState } from "react";
+import useTilt from "@/hooks/useTilt";
 
 const SocialProofSection = () => {
+  const tiltRef = useTilt({ max: 10, scale: 1.02 });
   const [counters, setCounters] = useState({
     events: 0,
     families: 0,
@@ -51,9 +53,9 @@ const SocialProofSection = () => {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10">
+    <section className="py-16 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 scroll-animate">
       <div className="container-fluid">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 fade-scale">
           <div className="inline-flex items-center gap-2 bg-primary/20 px-4 py-2 rounded-full mb-4">
             <TrendingUp className="w-4 h-4 text-primary" />
             <span className="text-primary font-medium text-sm">Esta semana</span>
@@ -68,12 +70,12 @@ const SocialProofSection = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {/* Chás criados */}
-          <div className="text-center group">
+          <div className="text-center group scroll-animate" ref={tiltRef}>
             <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4 
-              group-hover:scale-110 transition-transform">
-              <Heart className="w-8 h-8 text-primary" fill="currentColor" />
+              group-hover:scale-110 transition-transform breathing card-3d magnetic-hover">
+              <Heart className="w-8 h-8 text-primary gradient-shift" fill="currentColor" />
             </div>
-            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+            <div className="text-3xl md:text-4xl font-bold text-primary mb-2 typewriter">
               {formatNumber(counters.events)}+
             </div>
             <div className="text-sm text-muted-foreground">
@@ -82,12 +84,12 @@ const SocialProofSection = () => {
           </div>
 
           {/* Famílias felizes */}
-          <div className="text-center group">
+          <div className="text-center group scroll-animate" style={{ animationDelay: '200ms' }}>
             <div className="w-16 h-16 bg-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-4 
-              group-hover:scale-110 transition-transform">
-              <Users className="w-8 h-8 text-secondary" />
+              group-hover:scale-110 transition-transform breathing card-3d magnetic-hover">
+              <Users className="w-8 h-8 text-secondary gradient-shift" />
             </div>
-            <div className="text-3xl md:text-4xl font-bold text-secondary mb-2">
+            <div className="text-3xl md:text-4xl font-bold text-secondary mb-2 typewriter">
               {formatNumber(counters.families)}+
             </div>
             <div className="text-sm text-muted-foreground">
@@ -96,12 +98,12 @@ const SocialProofSection = () => {
           </div>
 
           {/* Total arrecadado */}
-          <div className="text-center group">
+          <div className="text-center group scroll-animate" style={{ animationDelay: '400ms' }}>
             <div className="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-4 
-              group-hover:scale-110 transition-transform">
-              <DollarSign className="w-8 h-8 text-accent" />
+              group-hover:scale-110 transition-transform breathing card-3d magnetic-hover">
+              <DollarSign className="w-8 h-8 text-accent gradient-shift" />
             </div>
-            <div className="text-2xl md:text-3xl font-bold text-accent mb-2">
+            <div className="text-2xl md:text-3xl font-bold text-accent mb-2 typewriter">
               {formatCurrency(counters.raised)}
             </div>
             <div className="text-sm text-muted-foreground">
@@ -110,12 +112,12 @@ const SocialProofSection = () => {
           </div>
 
           {/* Mensagens de carinho */}
-          <div className="text-center group">
+          <div className="text-center group scroll-animate" style={{ animationDelay: '600ms' }}>
             <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4 
-              group-hover:scale-110 transition-transform">
-              <Heart className="w-8 h-8 text-primary" />
+              group-hover:scale-110 transition-transform breathing card-3d magnetic-hover">
+              <Heart className="w-8 h-8 text-primary gradient-shift" />
             </div>
-            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+            <div className="text-3xl md:text-4xl font-bold text-primary mb-2 typewriter">
               {formatNumber(counters.messages)}+
             </div>
             <div className="text-sm text-muted-foreground">

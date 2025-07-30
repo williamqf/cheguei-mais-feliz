@@ -1,5 +1,6 @@
 import { Gift, Users, MessageCircle, CreditCard } from "lucide-react";
 import { Link } from "react-router-dom";
+import useTilt from "@/hooks/useTilt";
 
 const steps = [
   {
@@ -29,10 +30,12 @@ const steps = [
 ];
 
 const HowItWorksSection = () => {
+  const tiltRef = useTilt({ max: 15, scale: 1.05 });
+
   return (
-    <section id="como-funciona" className="section-padding bg-neutral/20">
+    <section id="como-funciona" className="section-padding bg-neutral/20 scroll-animate">
       <div className="container-fluid">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 fade-scale">
           <h2 className="text-section-title mb-4">Como funciona?</h2>
           <p className="text-subtitle max-w-2xl mx-auto">
             Em poucos passos você cria uma experiência única para o seu chá de bebê
@@ -45,13 +48,14 @@ const HowItWorksSection = () => {
             return (
               <div 
                 key={index} 
-                className="card-floating text-center group animate-fade-in"
+                className="card-floating text-center group scroll-animate card-3d"
                 style={{ animationDelay: `${index * 200}ms` }}
+                ref={index === 0 ? tiltRef : undefined}
               >
-                <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center
+                <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center breathing magnetic-hover
                   ${step.color === 'primary' ? 'bg-primary/10' : 
                     step.color === 'secondary' ? 'bg-secondary/10' : 'bg-accent/10'}`}>
-                  <Icon className={`w-8 h-8 
+                  <Icon className={`w-8 h-8 gradient-shift hover-scale
                     ${step.color === 'primary' ? 'text-primary' : 
                       step.color === 'secondary' ? 'text-secondary' : 'text-accent'}`} />
                 </div>

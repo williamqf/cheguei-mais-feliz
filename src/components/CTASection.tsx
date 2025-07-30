@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { ArrowRight, Calendar, User, Baby } from "lucide-react";
+import useTilt from "@/hooks/useTilt";
 
 const CTASection = () => {
+  const tiltRef = useTilt({ max: 8, scale: 1.02 });
   const [formData, setFormData] = useState({
     parentName: "",
     babyName: "",
@@ -17,11 +19,11 @@ const CTASection = () => {
   };
 
   return (
-    <section id="contato" className="section-padding bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
+    <section id="contato" className="section-padding bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 scroll-animate">
       <div className="container-fluid">
         <div className="max-w-4xl mx-auto text-center">
           {/* Header */}
-          <div className="mb-12 animate-fade-in">
+          <div className="mb-12 fade-scale">
             <h2 className="text-section-title mb-6">
               Crie seu chá de bebê agora mesmo
             </h2>
@@ -32,8 +34,8 @@ const CTASection = () => {
           </div>
 
           {/* Formulário */}
-          <div className="max-w-2xl mx-auto animate-fade-in delay-200">
-            <div className="card-floating">
+          <div className="max-w-2xl mx-auto scroll-animate" style={{ animationDelay: '200ms' }}>
+            <div className="card-floating card-3d" ref={tiltRef}>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Nome do pai/mãe */}
@@ -101,7 +103,7 @@ const CTASection = () => {
                 {/* Botão de submit */}
                 <button
                   type="submit"
-                  className="btn-hero w-full group text-center"
+                  className="btn-hero w-full group text-center magnetic-hover ripple-effect"
                 >
                   Começar agora
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -116,26 +118,26 @@ const CTASection = () => {
           </div>
 
           {/* Features destacadas */}
-          <div className="mt-16 grid md:grid-cols-3 gap-8 animate-fade-in delay-400">
+          <div className="mt-16 grid md:grid-cols-3 gap-8 scroll-animate" style={{ animationDelay: '400ms' }}>
             <div className="text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-                <Baby className="w-6 h-6 text-primary" />
+              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3 breathing magnetic-hover">
+                <Baby className="w-6 h-6 text-primary gradient-shift" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Criação Rápida</h3>
               <p className="text-sm text-muted-foreground">Configure tudo em poucos minutos</p>
             </div>
             
             <div className="text-center">
-              <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-                <User className="w-6 h-6 text-secondary" />
+              <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mx-auto mb-3 breathing magnetic-hover">
+                <User className="w-6 h-6 text-secondary gradient-shift" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Compartilhamento Fácil</h3>
               <p className="text-sm text-muted-foreground">Envie para amigos e família</p>
             </div>
             
             <div className="text-center">
-              <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-                <Calendar className="w-6 h-6 text-accent" />
+              <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-3 breathing magnetic-hover">
+                <Calendar className="w-6 h-6 text-accent gradient-shift" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Gestão Completa</h3>
               <p className="text-sm text-muted-foreground">Controle total do seu evento</p>

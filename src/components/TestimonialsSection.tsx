@@ -1,4 +1,5 @@
 import { Star, Quote } from "lucide-react";
+import useTilt from "@/hooks/useTilt";
 
 const testimonials = [
   {
@@ -25,10 +26,12 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
+  const tiltRef = useTilt({ max: 12, scale: 1.03 });
+
   return (
-    <section id="depoimentos" className="section-padding bg-neutral/30">
+    <section id="depoimentos" className="section-padding bg-neutral/30 scroll-animate">
       <div className="container-fluid">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 fade-scale">
           <h2 className="text-section-title mb-4">O que dizem os papais</h2>
           <p className="text-subtitle max-w-2xl mx-auto">
             Histórias reais de famílias que criaram momentos inesquecíveis com o ChegueiApp
@@ -39,13 +42,14 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="card-floating group animate-fade-in"
+              className="card-floating group scroll-animate card-3d"
               style={{ animationDelay: `${index * 200}ms` }}
+              ref={index === 0 ? tiltRef : undefined}
             >
               {/* Quote icon */}
               <div className="flex justify-center mb-6">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                  <Quote className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center breathing magnetic-hover">
+                  <Quote className="w-6 h-6 text-primary gradient-shift" />
                 </div>
               </div>
 

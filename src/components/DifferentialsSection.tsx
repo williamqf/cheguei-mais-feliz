@@ -2,6 +2,8 @@ import { Bot, Video, Gift, BarChart3, Heart, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import giftsImage from "@/assets/gifts-illustration.jpg";
 import communityImage from "@/assets/community-illustration.jpg";
+import useTilt from "@/hooks/useTilt";
+import useParallax from "@/hooks/useParallax";
 
 const differentials = [
   {
@@ -31,11 +33,14 @@ const differentials = [
 ];
 
 const DifferentialsSection = () => {
+  const tiltRef = useTilt({ max: 10, scale: 1.02 });
+  const parallaxRef = useParallax(0.2);
+
   return (
-    <section id="recursos" className="section-padding bg-background">
+    <section id="recursos" className="section-padding bg-background scroll-animate" ref={parallaxRef}>
       <div className="container-fluid">
         {/* Header da seção */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 fade-scale">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Sparkles className="w-6 h-6 text-primary animate-pulse-soft" />
             <span className="text-primary font-medium">Nossos Diferenciais</span>
@@ -57,15 +62,15 @@ const DifferentialsSection = () => {
               return (
                 <div 
                   key={index}
-                  className="flex items-start gap-6 group animate-fade-in"
+                  className="flex items-start gap-6 group scroll-animate"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   <div className={`w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0
-                    transition-all duration-300 group-hover:scale-110
+                    transition-all duration-300 group-hover:scale-110 breathing magnetic-hover card-3d
                     ${item.color === 'primary' ? 'bg-primary/10 text-primary' : 
                       item.color === 'secondary' ? 'bg-secondary/10 text-secondary' : 
                       'bg-accent/10 text-accent'}`}>
-                    <Icon className="w-7 h-7" />
+                    <Icon className="w-7 h-7 gradient-shift hover-scale" />
                   </div>
                   
                   <div>
@@ -84,19 +89,19 @@ const DifferentialsSection = () => {
           </div>
 
           {/* Lado direito - Imagem */}
-          <div className="relative animate-fade-in delay-500">
-            <div className="relative">
+          <div className="relative scroll-animate slide-reveal">
+            <div className="relative" ref={tiltRef}>
               <img 
                 src={giftsImage} 
                 alt="Presentes especiais" 
-                className="w-full h-auto rounded-3xl shadow-lg hover-lift"
+                className="w-full h-auto rounded-3xl shadow-lg hover-lift card-3d"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl"></div>
             </div>
             
             {/* Badge flutuante */}
             <div className="absolute -top-4 -left-4 bg-primary/90 text-primary-foreground 
-              px-4 py-2 rounded-full text-sm font-medium animate-gentle-bounce">
+              px-4 py-2 rounded-full text-sm font-medium breathing magnetic-hover">
               ✨ Exclusivo ChegueiApp
             </div>
           </div>
