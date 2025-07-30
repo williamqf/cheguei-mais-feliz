@@ -2,10 +2,8 @@ import { ArrowRight, Sparkles, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-baby-illustration.jpg";
 import babyMascot from "@/assets/baby-mascot.jpg";
-
 const HeroSection = () => {
-  return (
-    <section className="relative min-h-screen bg-hero flex items-center justify-center overflow-hidden pt-20">
+  return <section className="relative min-h-screen bg-hero flex items-center justify-center overflow-hidden pt-20">
       {/* Background com microanimações */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-secondary/6 to-accent/8"></div>
       
@@ -30,14 +28,7 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Conteúdo textual */}
           <div className="text-center lg:text-left animate-slide-up space-y-8">
-            <div className="flex items-center justify-center lg:justify-start mb-8">
-              <img 
-                src={babyMascot} 
-                alt="ChegueFamília Mascote" 
-                className="w-20 h-20 rounded-full mr-4 animate-pulse-soft shadow-lg"
-              />
-              <span className="text-xl font-semibold text-primary font-serif">ChegueFamília</span>
-            </div>
+            
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8 font-serif">
               <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
@@ -82,11 +73,7 @@ const HeroSection = () => {
           {/* Imagem principal */}
           <div className="relative animate-fade-in delay-300">
             <div className="relative">
-              <img 
-                src={heroImage} 
-                alt="Ilustração do chá de bebê" 
-                className="w-full h-auto rounded-3xl shadow-2xl hover-lift"
-              />
+              <img src={heroImage} alt="Ilustração do chá de bebê" className="w-full h-auto rounded-3xl shadow-2xl hover-lift" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent rounded-3xl"></div>
             </div>
             
@@ -118,8 +105,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
