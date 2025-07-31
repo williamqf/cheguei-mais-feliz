@@ -47,7 +47,7 @@ const DifferentialsSection = () => {
             <Sparkles className="w-6 h-6 text-primary animate-pulse-soft" />
           </div>
           <h2 className="text-section-title mb-4">O que nos torna especiais?</h2>
-          <p className="text-subtitle max-w-3xl mx-auto">
+          <p className="text-subtitle max-w-3xl mx-auto text-foreground/80">
             Vá além do básico com recursos únicos que transformam seu chá de bebê 
             em uma experiência inesquecível
           </p>
@@ -79,7 +79,7 @@ const DifferentialsSection = () => {
                         item.color === 'secondary' ? 'text-secondary' : 'text-accent'}`}>
                       {item.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-foreground/70 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
@@ -90,11 +90,11 @@ const DifferentialsSection = () => {
 
           {/* Lado direito - Imagem */}
           <div className="relative scroll-animate slide-reveal">
-            <div className="relative" ref={tiltRef}>
+            <div className="relative">
               <img 
                 src={giftsImage} 
                 alt="Presentes especiais" 
-                className="w-full h-auto rounded-3xl shadow-lg hover-lift card-3d"
+                className="w-full h-auto rounded-3xl shadow-lg hover-lift"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl"></div>
             </div>
@@ -118,7 +118,7 @@ const DifferentialsSection = () => {
             <Heart className="w-8 h-8 text-primary animate-pulse-soft" />
           </div>
           
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/80 mb-8 max-w-2xl mx-auto">
             Acompanhe o progresso do seu evento com gamificação suave: 
             20% dos presentes arrecadados, 30 pessoas confirmadas, e muito mais!
           </p>
@@ -127,22 +127,22 @@ const DifferentialsSection = () => {
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 bg-primary rounded-full animate-pulse-soft"></div>
-              <span className="text-sm text-muted-foreground">Lista criada</span>
+              <span className="text-sm text-foreground/70">Lista criada</span>
             </div>
             <div className="w-8 h-0.5 bg-primary/30"></div>
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 bg-secondary rounded-full animate-pulse-soft delay-300"></div>
-              <span className="text-sm text-muted-foreground">20% arrecadado</span>
+              <span className="text-sm text-foreground/70">20% arrecadado</span>
             </div>
             <div className="w-8 h-0.5 bg-secondary/30"></div>
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 bg-accent rounded-full animate-pulse-soft delay-500"></div>
-              <span className="text-sm text-muted-foreground">Convidados confirmados</span>
+              <span className="text-sm text-foreground/70">Convidados confirmados</span>
             </div>
           </div>
           
-          <Link to="/recursos" className="btn-accent">
-            Ver todos os recursos
+          <Link to="/demonstracao" className="btn-accent">
+            Demonstração
           </Link>
         </div>
       </div>

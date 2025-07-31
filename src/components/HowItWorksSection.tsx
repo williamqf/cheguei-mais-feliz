@@ -33,11 +33,11 @@ const HowItWorksSection = () => {
   const tiltRef = useTilt({ max: 15, scale: 1.05 });
 
   return (
-    <section id="como-funciona" className="section-padding bg-neutral/20 scroll-animate">
+    <section id="como-funciona" className="py-16 md:py-20 bg-neutral/30 scroll-animate">
       <div className="container-fluid">
         <div className="text-center mb-16 fade-scale">
-          <h2 className="text-section-title mb-4">Como funciona?</h2>
-          <p className="text-subtitle max-w-2xl mx-auto">
+          <h2 className="text-section-title mb-4 text-foreground">Como funciona?</h2>
+          <p className="text-subtitle max-w-2xl mx-auto text-foreground/80">
             Em poucos passos você cria uma experiência única para o seu chá de bebê
           </p>
         </div>
@@ -48,9 +48,8 @@ const HowItWorksSection = () => {
             return (
               <div 
                 key={index} 
-                className="card-floating text-center group scroll-animate card-3d"
+                className="card-floating text-center group scroll-animate"
                 style={{ animationDelay: `${index * 200}ms` }}
-                ref={index === 0 ? tiltRef : undefined}
               >
                 <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center breathing magnetic-hover
                   ${step.color === 'primary' ? 'bg-primary/10' : 
@@ -66,7 +65,7 @@ const HowItWorksSection = () => {
                   {step.title}
                 </div>
                 
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-foreground/70 leading-relaxed">
                   {step.description}
                 </p>
                 
@@ -83,7 +82,7 @@ const HowItWorksSection = () => {
         
         {/* CTA adicional */}
         <div className="text-center mt-16">
-          <p className="text-muted-foreground mb-6">Simples assim! Pronto para começar?</p>
+          <p className="text-foreground/70 mb-6">Simples assim! Pronto para começar?</p>
           <Link to="/criar-cha" className="btn-hero">
             Criar meu chá de bebê agora
           </Link>

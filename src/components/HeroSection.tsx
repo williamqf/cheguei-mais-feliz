@@ -10,10 +10,10 @@ const HeroSection = () => {
   const mousePosition = useMousePosition();
   const tiltRef = useTilt({ max: 20, scale: 1.05 });
 
-  return <section className="relative min-h-screen bg-hero flex items-center justify-center overflow-hidden pt-20 scroll-animate"
+  return <section className="relative min-h-screen bg-hero flex items-center justify-center overflow-hidden pt-16 scroll-animate"
     ref={parallaxRef}>
       {/* Background com microanimações */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-secondary/6 to-accent/8"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/15 to-accent/20"></div>
       
       {/* Elementos flutuantes com microanimações suaves e seguem o mouse */}
       <div 
@@ -30,7 +30,7 @@ const HeroSection = () => {
           transform: `translate(${mousePosition.x * -0.008}px, ${mousePosition.y * 0.008}px)`
         }}
       >
-        <Heart className="w-8 h-8 text-primary/40 animate-pulse-soft hover-scale" />
+        <Heart className="w-8 h-8 text-primary animate-pulse-soft hover-scale" />
       </div>
       <div 
         className="absolute top-56 left-1/4 animate-gentle-bounce delay-500 parallax-element"
@@ -38,7 +38,7 @@ const HeroSection = () => {
           transform: `translate(${mousePosition.x * 0.012}px, ${mousePosition.y * -0.006}px)`
         }}
       >
-        <div className="w-8 h-8 bg-secondary/25 rounded-full animate-pulse-soft delay-300 breathing"></div>
+        <div className="w-8 h-8 bg-secondary/60 rounded-full animate-pulse-soft delay-300 breathing"></div>
       </div>
       <div 
         className="absolute bottom-40 right-24 animate-float delay-2000 parallax-element"
@@ -46,7 +46,7 @@ const HeroSection = () => {
           transform: `translate(${mousePosition.x * -0.015}px, ${mousePosition.y * 0.01}px)`
         }}
       >
-        <Sparkles className="w-6 h-6 text-accent/50 animate-pulse-soft delay-500 hover-scale" />
+        <Sparkles className="w-6 h-6 text-accent animate-pulse-soft delay-500 hover-scale" />
       </div>
       <div 
         className="absolute bottom-32 left-20 animate-gentle-bounce parallax-element"
@@ -54,7 +54,7 @@ const HeroSection = () => {
           transform: `translate(${mousePosition.x * 0.006}px, ${mousePosition.y * -0.008}px)`
         }}
       >
-        <div className="w-10 h-10 bg-accent/20 rounded-full animate-pulse-soft delay-700 breathing"></div>
+        <div className="w-10 h-10 bg-accent/60 rounded-full animate-pulse-soft delay-700 breathing"></div>
       </div>
       
       <div className="container-fluid relative z-10">
@@ -71,7 +71,7 @@ const HeroSection = () => {
               <span className="text-foreground">o chá de bebê</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
+            <p className="text-lg md:text-xl text-foreground/80 leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
               Organize, compartilhe, emocione e receba apoio com um toque. 
               <strong className="text-primary font-medium"> Tudo num só lugar.</strong>
             </p>
@@ -87,7 +87,7 @@ const HeroSection = () => {
               </a>
             </div>
             
-            <div className="flex items-center justify-center lg:justify-start gap-8 text-base text-muted-foreground">
+            <div className="flex items-center justify-center lg:justify-start gap-8 text-base text-foreground/70">
               <div className="flex items-center gap-3">
                 <div className="w-4 h-4 bg-primary rounded-full animate-pulse-soft"></div>
                 <span>100% gratuito</span>
@@ -105,8 +105,8 @@ const HeroSection = () => {
           
           {/* Imagem principal */}
           <div className="relative scroll-animate slide-reveal">
-            <div className="relative" ref={tiltRef}>
-              <img src={heroImage} alt="Ilustração do chá de bebê" className="w-full h-auto rounded-3xl shadow-2xl hover-lift card-3d" />
+            <div className="relative">
+              <img src={heroImage} alt="Ilustração do chá de bebê" className="w-full h-auto rounded-3xl shadow-2xl hover-lift" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent rounded-3xl"></div>
             </div>
             

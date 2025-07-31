@@ -2,7 +2,7 @@ import { Heart } from "lucide-react";
 
 const EmotionalSection = () => {
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5 relative overflow-hidden">
+    <section className="py-16 md:py-20 bg-gradient-to-r from-primary/10 via-secondary/8 to-accent/10 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-morphing-gradient"></div>
@@ -21,7 +21,7 @@ const EmotionalSection = () => {
             Seu momento especial merece ser celebrado com <span className="gradient-shift bg-clip-text text-transparent">amor</span>
           </h2>
           
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto fade-scale">
+          <p className="text-lg md:text-xl text-foreground/80 leading-relaxed max-w-2xl mx-auto fade-scale">
             Cada detalhe do seu chá de bebê é pensado para criar memórias únicas 
             e conectar todos que amam você e seu bebê.
           </p>

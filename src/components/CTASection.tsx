@@ -24,10 +24,10 @@ const CTASection = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Header */}
           <div className="mb-12 fade-scale">
-            <h2 className="text-section-title mb-6">
+            <h2 className="text-section-title mb-6 text-foreground">
               Crie seu chá de bebê agora mesmo
             </h2>
-            <p className="text-subtitle">
+            <p className="text-subtitle text-foreground/80">
               <strong className="text-primary">Grátis, bonito e emocionante.</strong> 
               Em poucos minutos você terá uma página única para celebrar a chegada do seu bebê.
             </p>
@@ -35,7 +35,7 @@ const CTASection = () => {
 
           {/* Formulário */}
           <div className="max-w-2xl mx-auto scroll-animate" style={{ animationDelay: '200ms' }}>
-            <div className="card-floating card-3d" ref={tiltRef}>
+            <div className="card-floating">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Nome do pai/mãe */}
@@ -110,7 +110,7 @@ const CTASection = () => {
                 </button>
 
                 {/* Texto de segurança */}
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-foreground/70">
                   ✅ 100% gratuito • ✅ Sem cartão de crédito • ✅ Pronto em 2 minutos
                 </p>
               </form>
@@ -124,7 +124,7 @@ const CTASection = () => {
                 <Baby className="w-6 h-6 text-primary gradient-shift" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Criação Rápida</h3>
-              <p className="text-sm text-muted-foreground">Configure tudo em poucos minutos</p>
+              <p className="text-sm text-foreground/70">Configure tudo em poucos minutos</p>
             </div>
             
             <div className="text-center">
@@ -132,7 +132,7 @@ const CTASection = () => {
                 <User className="w-6 h-6 text-secondary gradient-shift" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Compartilhamento Fácil</h3>
-              <p className="text-sm text-muted-foreground">Envie para amigos e família</p>
+              <p className="text-sm text-foreground/70">Envie para amigos e família</p>
             </div>
             
             <div className="text-center">
@@ -140,7 +140,7 @@ const CTASection = () => {
                 <Calendar className="w-6 h-6 text-accent gradient-shift" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Gestão Completa</h3>
-              <p className="text-sm text-muted-foreground">Controle total do seu evento</p>
+              <p className="text-sm text-foreground/70">Controle total do seu evento</p>
             </div>
           </div>
         </div>

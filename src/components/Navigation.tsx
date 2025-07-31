@@ -43,11 +43,11 @@ const Navigation = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-4">
-            <Link to="/login" className="btn-secondary flex items-center gap-2">
+            <Link to="/login" className="btn-secondary flex items-center gap-2 px-6 py-3">
               <LogIn className="w-4 h-4" />
               Entrar
             </Link>
-            <Link to="/criar-cha" className="btn-hero flex items-center gap-2">
+            <Link to="/criar-cha" className="btn-hero flex items-center gap-2 px-6 py-3">
               <Baby className="w-4 h-4" />
               Criar chá grátis
             </Link>
@@ -77,11 +77,11 @@ const Navigation = () => {
                 </a>
               ))}
               <div className="pt-4 space-y-3">
-                <Link to="/login" className="btn-secondary w-full flex items-center justify-center gap-2">
+                <Link to="/login" className="btn-secondary w-full flex items-center justify-center gap-2 py-3">
                   <LogIn className="w-4 h-4" />
                   Entrar
                 </Link>
-                <Link to="/criar-cha" className="btn-hero w-full flex items-center justify-center gap-2">
+                <Link to="/criar-cha" className="btn-hero w-full flex items-center justify-center gap-2 py-3">
                   <Baby className="w-4 h-4" />
                   Criar chá grátis
                 </Link>
