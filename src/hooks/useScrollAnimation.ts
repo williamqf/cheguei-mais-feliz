@@ -29,7 +29,20 @@ export const useScrollAnimation = () => {
         entries.forEach((entry) => {
           const element = entry.target as HTMLElement;
           const rect = entry.boundingClientRect;
-          const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / window.innerHeight));
+          
+          // Improved progress calculation that handles initial state properly
+          let progress;
+          if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+            // Element is visible - calculate proper progress
+            const elementHeight = rect.height;
+            const windowHeight = window.innerHeight;
+            const visibleTop = Math.max(0, windowHeight - rect.top);
+            const visibleHeight = Math.min(elementHeight, visibleTop, rect.bottom);
+            progress = Math.max(0, Math.min(1, visibleHeight / Math.min(elementHeight, windowHeight)));
+          } else {
+            // Element is not visible
+            progress = 0;
+          }
           
           if (entry.isIntersecting) {
             // Apply progressive animations based on scroll progress
@@ -40,16 +53,28 @@ export const useScrollAnimation = () => {
             
             if (element.classList.contains('fade-scale')) {
               const scale = 0.8 + (progress * 0.2);
-              const opacity = Math.max(0.3, progress);
+              const opacity = progress > 0.1 ? Math.max(0.8, progress) : 1;
               element.style.transform = `scale(${scale})`;
               element.style.opacity = opacity.toString();
             }
             
             if (element.classList.contains('slide-reveal')) {
-              const translateX = (1 - progress) * 100;
-              const opacity = Math.max(0.3, progress);
-              element.style.transform = `translateX(${translateX}px)`;
-              element.style.opacity = opacity.toString();
+              // For elements initially visible, don't apply displacement
+              if (rect.top < window.innerHeight * 0.8) {
+                element.style.transform = `translateX(0px)`;
+                element.style.opacity = '1';
+              } else {
+                const translateX = (1 - progress) * 100;
+                const opacity = Math.max(0.8, progress);
+                element.style.transform = `translateX(${translateX}px)`;
+                element.style.opacity = opacity.toString();
+              }
+            }
+          } else {
+            // Reset styles when not intersecting
+            if (element.classList.contains('slide-reveal') || element.classList.contains('fade-scale')) {
+              element.style.transform = '';
+              element.style.opacity = '';
             }
           }
         });
