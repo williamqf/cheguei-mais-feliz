@@ -40,15 +40,16 @@ export const useScrollAnimation = () => {
             
             if (element.classList.contains('fade-scale')) {
               const scale = 0.8 + (progress * 0.2);
-              const opacity = progress;
+              const opacity = Math.max(0.3, progress);
               element.style.transform = `scale(${scale})`;
               element.style.opacity = opacity.toString();
             }
             
             if (element.classList.contains('slide-reveal')) {
               const translateX = (1 - progress) * 100;
+              const opacity = Math.max(0.3, progress);
               element.style.transform = `translateX(${translateX}px)`;
-              element.style.opacity = progress.toString();
+              element.style.opacity = opacity.toString();
             }
           }
         });
