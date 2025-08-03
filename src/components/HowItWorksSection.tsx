@@ -42,30 +42,30 @@ const HowItWorksSection = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
               <div 
                 key={index} 
-                className="card-floating text-center group scroll-animate"
+                className="card-floating text-center group min-h-[280px] flex flex-col justify-start p-6"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
-                <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center breathing magnetic-hover
+                <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center magnetic-hover
                   ${step.color === 'primary' ? 'bg-primary/10' : 
                     step.color === 'secondary' ? 'bg-secondary/10' : 'bg-accent/10'}`}>
-                  <Icon className={`w-8 h-8 gradient-shift hover-scale
+                  <Icon className={`w-8 h-8 hover-scale
                     ${step.color === 'primary' ? 'text-primary' : 
                       step.color === 'secondary' ? 'text-secondary' : 'text-accent'}`} />
                 </div>
                 
-                <div className={`text-lg font-semibold mb-3 
+                <div className={`text-lg font-semibold mb-4 
                   ${step.color === 'primary' ? 'text-primary' : 
                     step.color === 'secondary' ? 'text-secondary' : 'text-accent'}`}>
                   {step.title}
                 </div>
                 
-                <p className="text-foreground/70 leading-relaxed">
+                <p className="text-foreground/90 leading-relaxed text-sm flex-grow">
                   {step.description}
                 </p>
                 
