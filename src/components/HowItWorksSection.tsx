@@ -33,7 +33,7 @@ const HowItWorksSection = () => {
   const tiltRef = useTilt({ max: 15, scale: 1.05 });
 
   return (
-    <section id="como-funciona" className="py-20 md:py-24 bg-neutral/30 scroll-animate">
+    <section id="como-funciona" className="pt-20 md:pt-24 pb-28 md:pb-36 mb-12 bg-neutral/30 scroll-animate">
       <div className="container-fluid">
         <div className="text-center mb-16 fade-scale">
           <h2 className="text-section-title mb-4 text-foreground">Como funciona?</h2>
