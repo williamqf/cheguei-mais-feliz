@@ -14,7 +14,7 @@ export const useSmoothScroll = () => {
         if (targetId) {
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
-            const offsetTop = targetElement.offsetTop - 80; // Account for fixed header
+            const offsetTop = targetElement.offsetTop - 120; // Account for fixed header and proper spacing
             
             window.scrollTo({
               top: offsetTop,
