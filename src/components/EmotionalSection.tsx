@@ -2,7 +2,7 @@ import { Heart } from "lucide-react";
 
 const EmotionalSection = () => {
   return (
-    <section className="py-16 md:py-20 bg-gradient-to-r from-primary/10 via-secondary/8 to-accent/10 relative overflow-hidden">
+    <section className="pt-8 md:pt-12 pb-16 md:pb-20 bg-gradient-to-r from-primary/10 via-secondary/8 to-accent/10 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-morphing-gradient"></div>
