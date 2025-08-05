@@ -33,7 +33,7 @@ const HowItWorksSection = () => {
   const tiltRef = useTilt({ max: 15, scale: 1.05 });
 
   return (
-    <section id="como-funciona" className="pt-20 md:pt-24 pb-32 md:pb-40 mb-16 bg-neutral/30 scroll-animate">
+    <section id="como-funciona" className="pt-20 md:pt-24 pb-40 md:pb-48 mb-20 bg-neutral/30 scroll-animate">
       <div className="container-fluid">
         <div className="text-center mb-16 fade-scale">
           <h2 className="text-section-title mb-4 text-foreground">Como funciona?</h2>
@@ -81,7 +81,7 @@ const HowItWorksSection = () => {
         </div>
         
         {/* CTA adicional */}
-        <div className="text-center mt-20">
+        <div className="text-center mt-24">
           <p className="text-foreground/70 mb-6">Simples assim! Pronto para começar?</p>
           <Link to="/criar-cha" className="btn-hero">
             Criar meu chá de bebê agora
