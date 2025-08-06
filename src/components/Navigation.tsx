@@ -19,14 +19,14 @@ const Navigation = () => {
       <div className="container-fluid">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <a href="#top" className="flex items-center gap-3 group">
             <img 
               src={babyMascot} 
-              alt="ChegueFamília" 
-              className="w-10 h-10 rounded-full"
+              alt="Cheguei Família" 
+              className="w-10 h-10 rounded-full group-hover:scale-105 transition-transform"
             />
-            <div className="text-xl font-bold text-primary font-serif">ChegueFamília</div>
-          </div>
+            <div className="text-xl font-bold text-primary font-serif group-hover:text-primary/90 transition-colors">Cheguei Família</div>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">

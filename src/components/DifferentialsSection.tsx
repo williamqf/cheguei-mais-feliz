@@ -102,7 +102,7 @@ const DifferentialsSection = () => {
             {/* Badge flutuante */}
             <div className="absolute -top-4 -left-4 bg-primary/90 text-primary-foreground 
               px-4 py-2 rounded-full text-sm font-medium breathing magnetic-hover">
-              ✨ Exclusivo ChegueiApp
+              ✨ Exclusivo Cheguei Família
             </div>
           </div>
         </div>

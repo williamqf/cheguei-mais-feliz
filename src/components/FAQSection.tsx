@@ -4,7 +4,7 @@ import { Plus, Minus } from "lucide-react";
 const faqs = [
   {
     question: "É realmente gratuito para sempre?",
-    answer: "Sim! O ChegueFamília é 100% gratuito. Você pode criar seu chá de bebê, receber presentes e gerenciar tudo sem pagar nada."
+    answer: "Sim! O Cheguei Família é 100% gratuito. Você pode criar seu chá de bebê, receber presentes e gerenciar tudo sem pagar nada."
   },
   {
     question: "Como os convidados fazem os presentes?",

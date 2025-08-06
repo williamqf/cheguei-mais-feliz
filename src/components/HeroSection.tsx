@@ -1,7 +1,8 @@
 import { ArrowRight, Sparkles, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Lottie from "lottie-react";
 import heroImage from "@/assets/hero-baby-illustration.jpg";
-import babyMascot from "@/assets/baby-mascot.jpg";
 import useParallax from "@/hooks/useParallax";
 import useMousePosition from "@/hooks/useMousePosition";
 import useTilt from "@/hooks/useTilt";
@@ -9,8 +10,19 @@ const HeroSection = () => {
   const parallaxRef = useParallax(0.3);
   const mousePosition = useMousePosition();
   const tiltRef = useTilt({ max: 20, scale: 1.05 });
+  const [animationData, setAnimationData] = useState<any>(null);
 
-  return <section className="relative h-screen bg-hero flex items-center justify-center overflow-hidden pt-16 pb-8 scroll-animate"
+  useEffect(() => {
+    // Lazy load Lottie animation from public folder (fallback gracefully if unavailable)
+    fetch('/lottie/baby.json')
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((data) => setAnimationData(data))
+      .catch(() => {
+        // no-op: keep hero image if animation is missing
+      });
+  }, []);
+
+  return <section id="top" className="relative h-screen bg-hero flex items-center justify-center overflow-hidden pt-16 pb-8 scroll-animate"
     ref={parallaxRef}>
       {/* Background com microanimações */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/15 to-accent/20"></div>
@@ -64,16 +76,15 @@ const HeroSection = () => {
             
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8 font-serif">
+              <span className="text-foreground">Cheguei Família — </span>
               <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                A nova forma de celebrar
+                A nova forma de celebrar o chá de bebê
               </span>
-              <br />
-              <span className="text-foreground">o chá de bebê</span>
             </h1>
             
             <p className="text-lg md:text-xl text-foreground/80 leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
-              Organize, compartilhe, emocione e receba apoio com um toque. 
-              <strong className="text-primary font-medium"> Tudo num só lugar.</strong>
+              Organize, compartilhe e emocione com carinho e praticidade.
+              Crie seu chá com presentes virtuais, mensagens e muito amor.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start mb-12">
@@ -106,22 +117,15 @@ const HeroSection = () => {
           {/* Imagem principal */}
           <div className="relative scroll-animate slide-reveal">
             <div className="relative">
+              {animationData && (
+                <div className="absolute -top-10 -left-10 w-40 h-40 md:w-56 md:h-56 pointer-events-none">
+                  <Lottie animationData={animationData} loop autoplay />
+                </div>
+              )}
               <img src={heroImage} alt="Ilustração do chá de bebê" className="w-full h-auto rounded-3xl shadow-2xl hover-lift" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent rounded-3xl"></div>
             </div>
             
-            {/* Card flutuante com estatísticas */}
-            <div className="absolute -bottom-6 -left-6 bg-card/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover-lift card-3d magnetic-hover">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center breathing">
-                  <Heart className="w-6 h-6 text-primary gradient-shift" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-foreground typewriter">1.2k+</div>
-                  <div className="text-sm text-muted-foreground">Chás criados</div>
-                </div>
-              </div>
-            </div>
             
             {/* Card flutuante com depoimento */}
             <div className="absolute -top-6 -right-6 bg-card/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover-lift card-3d magnetic-hover max-w-xs">

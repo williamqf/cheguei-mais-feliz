@@ -5,7 +5,7 @@ const testimonials = [
   {
     name: "Juliana Santos",
     role: "Mamãe do Caio",
-    content: "Organizar o chá do meu filho foi emocionante. ChegueiApp fez tudo fácil e lindo!",
+    content: "Organizar o chá do meu filho foi emocionante. Cheguei Família fez tudo fácil e lindo!",
     rating: 5,
     avatar: "JS"
   },
@@ -34,7 +34,7 @@ const TestimonialsSection = () => {
         <div className="text-center mb-16 fade-scale">
           <h2 className="text-section-title mb-4">O que dizem os papais</h2>
           <p className="text-subtitle max-w-2xl mx-auto">
-            Histórias reais de famílias que criaram momentos inesquecíveis com o ChegueiApp
+            Histórias reais de famílias que criaram momentos inesquecíveis com o Cheguei Família
           </p>
         </div>
 

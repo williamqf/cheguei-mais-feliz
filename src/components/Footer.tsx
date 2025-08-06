@@ -12,11 +12,11 @@ const Footer = () => {
             <div className="flex items-center gap-3 mb-4">
               <img 
                 src={babyMascot} 
-                alt="ChegueiApp" 
+                alt="Cheguei Família" 
                 className="w-12 h-12 rounded-full"
               />
               <div>
-                <div className="text-xl font-bold text-foreground">ChegueiApp</div>
+                <div className="text-xl font-bold text-foreground">Cheguei Família</div>
                 <div className="text-sm text-muted-foreground">A celebração que fica pra sempre</div>
               </div>
             </div>
@@ -67,7 +67,7 @@ const Footer = () => {
         <div className="py-6 border-t border-border flex flex-col md:flex-row 
           justify-between items-center gap-4">
           <div className="text-muted-foreground text-sm">
-            © 2025 ChegueiApp. Todos os direitos reservados.
+            © 2025 Cheguei Família. Todos os direitos reservados.
           </div>
           <div className="flex items-center gap-2 text-muted-foreground text-sm">
             <span>Feito com</span>
