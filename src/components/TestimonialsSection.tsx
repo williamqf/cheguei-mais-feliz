@@ -5,23 +5,23 @@ const testimonials = [
   {
     name: "Juliana Santos",
     role: "Mamãe do Caio",
-    content: "Organizar o chá do meu filho foi emocionante. Cheguei Família fez tudo fácil e lindo!",
+    content: "Foi a forma mais carinhosa de receber nossos queridos virtualmente!",
     rating: 5,
-    avatar: "JS"
+    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b601?w=150&h=150&fit=crop&crop=face"
   },
   {
     name: "Pedro e Ana",
     role: "Pais da Sofia",
-    content: "Os recadinhos em vídeo dos nossos amigos foram o que mais nos emocionou. Incrível!",
+    content: "Os recadinhos em vídeo nos emocionaram até as lágrimas.",
     rating: 5,
-    avatar: "PA"
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
   },
   {
     name: "Mariana Costa",
     role: "Mamãe do Lucas",
-    content: "A caixa de memórias é um presente que levaremos para sempre. Muito obrigada!",
+    content: "Uma caixa de memórias que levaremos para sempre no coração.",
     rating: 5,
-    avatar: "MC"
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
   }
 ];
 
@@ -67,10 +67,11 @@ const TestimonialsSection = () => {
 
               {/* Author */}
               <div className="flex items-center justify-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary 
-                  rounded-full flex items-center justify-center text-white font-semibold">
-                  {testimonial.avatar}
-                </div>
+                <img 
+                  src={testimonial.avatar} 
+                  alt={`Foto de ${testimonial.name}`}
+                  className="w-12 h-12 rounded-full object-cover"
+                />
                 <div className="text-center">
                   <div className="font-semibold text-foreground">{testimonial.name}</div>
                   <div className="text-sm text-muted-foreground">{testimonial.role}</div>

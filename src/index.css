@@ -4,11 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ChegueiApp Design System - Emocional Minimalista com Paleta Pastel */
+/* Cheguei Família Design System - Emocional Minimalista com Paleta Pastel */
 
 @layer base {
   :root {
-    /* Paleta Pastel Moderna - ChegueiApp */
+    /* Paleta Pastel Moderna - Cheguei Família */
     --background: 355 100% 99%;
     --foreground: 245 15% 25%;
 
@@ -89,7 +89,7 @@
   }
 
   .dark {
-    /* Tema escuro adaptado para ChegueiApp */
+    /* Tema escuro adaptado para Cheguei Família */
     --background: 245 25% 8%;
     --foreground: 35 25% 95%;
 

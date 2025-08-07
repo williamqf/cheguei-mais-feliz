@@ -35,10 +35,10 @@ const LoginPage = () => {
           <Link to="/" className="inline-flex items-center gap-3 mb-6 group">
             <img 
               src={babyMascot} 
-              alt="ChegueiApp" 
+              alt="Cheguei Família - Mascote bebê" 
               className="w-12 h-12 rounded-full group-hover:scale-110 transition-transform"
             />
-            <span className="text-2xl font-bold text-primary">ChegueiApp</span>
+            <span className="text-2xl font-bold text-primary">Cheguei Família</span>
           </Link>
           
           <h1 className="text-3xl font-bold text-foreground mb-2">
