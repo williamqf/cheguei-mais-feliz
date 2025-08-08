@@ -37,7 +37,8 @@ const DifferentialsSection = () => {
   const parallaxRef = useParallax(0.2);
 
   return (
-    <section id="recursos" className="section-padding bg-background scroll-animate" ref={parallaxRef}>
+    <section id="recursos" className="section-padding relative overflow-hidden bg-background">
+      <div ref={parallaxRef as any} className="absolute inset-0 -z-10 pointer-events-none bg-gradient-to-r from-secondary/10 via-accent/10 to-primary/10"></div>
       <div className="container-fluid">
         {/* Header da seção */}
         <div className="text-center mb-16 fade-scale">

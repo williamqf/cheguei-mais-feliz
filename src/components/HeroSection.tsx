@@ -22,10 +22,9 @@ const HeroSection = () => {
       });
   }, []);
 
-  return <section id="top" className="relative h-screen bg-hero flex items-center justify-center overflow-hidden pt-16 pb-8 scroll-animate"
-    ref={parallaxRef}>
+  return <section id="top" className="relative h-screen bg-hero flex items-center justify-center overflow-hidden pt-16 pb-8">
       {/* Background com microanimações */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/15 to-accent/20"></div>
+      <div ref={parallaxRef as any} className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/15 to-accent/20 -z-10"></div>
       
       {/* Elementos flutuantes com microanimações suaves e seguem o mouse */}
       <div 
